@@ -494,11 +494,6 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
             keys: ['Shift M'],
             command: 'notebook:change-cell-to-markdown'
         });
-        <!-- commands.addKeyBinding({ -->
-        <!--     selector: '.jp&#45;Notebook.jp&#45;mod&#45;editMode', -->
-        <!--     keys: ['M'], -->
-        <!--     command: 'notebook:change&#45;cell&#45;to&#45;markdown' -->
-        <!-- }); -->
         commands.addKeyBinding({
             selector: '.jp-Notebook.jp-mod-editMode',
             keys: ['Accel 3'],
