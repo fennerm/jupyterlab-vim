@@ -476,7 +476,7 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook.jp-mod-editMode',
-            keys: ['Shift Escape'],
+            keys: ['Escape'],
             command: 'notebook:enter-command-mode'
         });
         commands.addKeyBinding({
