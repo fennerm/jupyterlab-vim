@@ -179,6 +179,7 @@ class VimCell {
                 commands.execute('notebook:split-cell-at-cursor');
             });
             lvim.mapCommand('-', 'action', 'splitCell', {}, {extra: 'normal'});
+            lvim.mapCommand('<Esc>', 'action', 'notebook:enter-command-mode', {}, {extra: 'normal'});
         }
     }
 
@@ -475,11 +476,6 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
             command: 'run-select-next-edit'
         });
         commands.addKeyBinding({
-            selector: '.jp-Notebook.jp-mod-editMode',
-            keys: ['Escape'],
-            command: 'notebook:enter-command-mode'
-        });
-        commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
             keys: ['Ctrl M'],
             command: 'merge-and-edit'
@@ -584,12 +580,6 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
             keys: ['Ctrl G'],
             command: 'tooltip:launch-notebook'
         });
-        commands.addKeyBinding({
-            selector: '.jp-Notebook.jp-mod-editMode',
-            keys: ['Esc'],
-            command: 'notebook:enter-command-mode'
-        });
-
         // tslint:disable:no-unused-expression
         new VimCell(app, tracker);
     });
