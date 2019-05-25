@@ -461,7 +461,7 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
-            keys: ['Ctrl I'],
+            keys: ['I'],
             command: 'enter-insert-mode'
         });
         commands.addKeyBinding({
@@ -481,7 +481,7 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
-            keys: ['Shift M'],
+            keys: ['Ctrl M'],
             command: 'merge-and-edit'
         });
         commands.addKeyBinding({
@@ -492,6 +492,16 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
         commands.addKeyBinding({
             selector: '.jp-Notebook.jp-mod-editMode',
             keys: ['Accel 2'],
+            command: 'notebook:change-cell-to-markdown'
+        });
+        commands.addKeyBinding({
+            selector: '.jp-Notebook.focus',
+            keys: ['C'],
+            command: 'notebook:change-cell-to-code'
+        });
+        commands.addKeyBinding({
+            selector: '.jp-Notebook.jp-mod-editMode',
+            keys: ['M'],
             command: 'notebook:change-cell-to-markdown'
         });
         commands.addKeyBinding({
@@ -521,7 +531,7 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
-            keys: ['Y', 'Y'],
+            keys: ['Y'],
             command: 'notebook:copy-cell'
         });
         commands.addKeyBinding({
@@ -556,12 +566,17 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
-            keys: ['Ctrl E'],
+            keys: ['Ctrl R'],
+            command: 'notebook:redo-cell-action'
+        });
+        commands.addKeyBinding({
+            selector: '.jp-Notebook:focus',
+            keys: ['Ctrl J'],
             command: 'notebook:move-cell-down'
         });
         commands.addKeyBinding({
             selector: '.jp-Notebook:focus',
-            keys: ['Ctrl Y'],
+            keys: ['Ctrl K'],
             command: 'notebook:move-cell-up'
         });
         commands.addKeyBinding({
@@ -578,6 +593,11 @@ function activateCellVim(app: JupyterLab, tracker: INotebookTracker): Promise<vo
             selector: '.jp-Notebook.jp-mod-editMode .jp-InputArea-editor:not(.jp-mod-has-primary-selection)',
             keys: ['Ctrl G'],
             command: 'tooltip:launch-notebook'
+        });
+        commands.addKeyBinding({
+            selector: '.jp-Notebook.jp-mod-editMode',
+            keys: ['Esc'],
+            command: 'notebook:enter-command-mode'
         });
 
         // tslint:disable:no-unused-expression
